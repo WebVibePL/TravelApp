@@ -1,42 +1,32 @@
 -- ************************************** `Travel`.`Users`
 CREATE TABLE `Travel`.`Users`
 (
- `UserID` int NOT NULL ,
- `Login`  varchar(45) NOT NULL ,
+ `UserID`            int NOT NULL AUTO_INCREMENT,
+ `Email`             varchar(100) NOT NULL ,
+ `Password`			 varchar(500) NOT NULL ,
+ `FirstName`         varchar(45) ,
+ `LastName`          varchar(100) ,
+ `BankAccountNumber` char(26) ,
 PRIMARY KEY (`UserID`)
 );
 
 -- ************************************** `Travel`.`Status`
 CREATE TABLE `Travel`.`Status`
 (
- `StatusID`   smallint NOT NULL ,
+ `StatusID`   smallint NOT NULL AUTO_INCREMENT,
  `StatusName` varchar(45) NOT NULL ,
 PRIMARY KEY (`StatusID`)
-);
-
--- ************************************** `Travel`.`UserInformation`
-CREATE TABLE `Travel`.`UserInformation`
-(
- `UserInformationID` int NOT NULL ,
- `UserID`            int NOT NULL ,
- `FirstName`         varchar(45) ,
- `LastName`          varchar(100) ,
- `BankAccountNumber` char(26) ,
- `Email`             varchar(100) NOT NULL ,
-PRIMARY KEY (`UserInformationID`),
-KEY `fkIdx_118` (`UserID`),
-CONSTRAINT `FK_118` FOREIGN KEY `fkIdx_118` (`UserID`) REFERENCES `Travel`.`Users` (`UserID`)
 );
 
 -- ************************************** `Travel`.`Travels`
 CREATE TABLE `Travel`.`Travels`
 (
- `TravelID`               int NOT NULL ,
+ `TravelID`               int NOT NULL AUTO_INCREMENT,
  `Name`                   varchar(100) NOT NULL ,
  `DateFrom`               datetime NOT NULL ,
  `DateTo`                 datetime NOT NULL ,
  `AddressCity`            varchar(100) NOT NULL ,
- `AddressPostCode`        char(5) NOT NULL ,
+ `AddressPostCode`        char(6) NOT NULL ,
  `AddressStreet`          varchar(100) NOT NULL ,
  `AddressHouseFlatNumber` varchar(7) NOT NULL ,
  `PlaceName`              varchar(100) NOT NULL ,
@@ -49,7 +39,7 @@ CONSTRAINT `FK_172` FOREIGN KEY `fkIdx_172` (`StatusID`) REFERENCES `Travel`.`St
 -- ************************************** `Travel`.`TravelMembers`
 CREATE TABLE `Travel`.`TravelMembers`
 (
- `TravelMembersID` int NOT NULL ,
+ `TravelMembersID` int NOT NULL AUTO_INCREMENT,
  `TravelID`        int NOT NULL ,
  `UserID`          int NOT NULL ,
  `IsOwner`         bit NOT NULL ,
