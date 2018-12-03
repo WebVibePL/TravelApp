@@ -1,0 +1,30 @@
+@import "sass/variables.scss";
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: $color-primary;
+  line-height: 1.7;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+html, body, #app, #app > div, #root {
+  height: 100%;
+}
+
+
